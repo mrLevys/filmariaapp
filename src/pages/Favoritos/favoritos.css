@@ -1,4 +1,5 @@
 .meus-filmes {
+  padding: 0 15px;
   margin-top: 24px;
   display: flex;
   flex-direction: column;
@@ -25,14 +26,40 @@
   align-items: center;
   margin-bottom: 14px;
 }
-.meus-filmes div {
+.meus-filmes .controls {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 14px;
 }
 
-.meus-filmes div a {
+.controls button {
+  font-size: 14px;
+  border: 0;
+  outline: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: brown;
+  color: #fff;  
+  &:hover{
+    background-color: rgb(104, 17, 17);
+    transition: all .4s;
+  } 
+}
+.controls a {
+  font-size: 14px;
+  border: 0;
   text-decoration: none;
-  color: #116feb;
-  margin-right: 14px;
+  outline: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: cadetblue;
+  color: #fff;  
+  
+  &:hover{
+    background-color: rgb(27, 122, 126);
+    transition: all .4s;
+  } 
 }
