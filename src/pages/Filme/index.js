@@ -30,11 +30,22 @@ function Filme() {
     } 
     loadFilme();
 
-
-    return () => {
-      console.log("componente foi desmontado")
-    }
   },[id, navigate])
+
+  const salvarFilme = () => {
+    const minhaLista = localStorage.getItem("@filmariaapp");
+    let filmesSalvos = JSON.parse(minhaLista) || [];
+    const hasFilme = filmesSalvos.some((filmesSalvo) => filmesSalvo.id === filme.id);
+
+    if(hasFilme) {
+      alert("Esse filme já esta na lista");
+      return;
+    }
+
+    filmesSalvos.push(filme);
+    localStorage.setItem("@filmariaapp", JSON.stringify(filmesSalvos));
+    alert("Filme salvo com sucesso");
+  }
 
   if (loading) {
     return (
@@ -52,9 +63,9 @@ function Filme() {
       <p>{filme.overview}</p>
       <p><strong>{filme.vote_average} /10</strong></p>
       <p className="area-buttons">
-        <button>Salvar</button>
+        <button onClick={salvarFilme}>Salvar</button>
         <button>
-          <a href={`https://youtube.com/results?search_query=${filme.title} Trailer`} target="_blank" rel="external noreferrer">
+          <a href={`https://youtube.com/results?search_query=${filme.title} Trailer`} target="blank" rel="external noreferrer">
             Trailer
           </a>
         </button>
