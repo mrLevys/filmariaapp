@@ -9,7 +9,6 @@ body{
 }
 
 .app{
-  padding: 0 15px;
   display: flex;
   width: 100%;
   justify-content: center;
